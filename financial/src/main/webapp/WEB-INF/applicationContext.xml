@@ -1,0 +1,51 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd"
+	default-autowire="byName">
+ 	
+	 <bean id="dataSource" 
+	         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/spspu_financial" />
+		<property name="username" value="root" />
+	</bean>
+
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation">
+            <value>classpath:hibernate.cfg.xml</value>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+ 
+    <bean id="transactionManager"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    	
+    <!-- Action beans -->
+  	<bean name="baseAction" class="framework.action.BaseAction" scope="prototype" ></bean>  
+	<bean name="loginAction" class="spsu.edu.financial.action.LoginAction" scope="prototype" parent="baseAction"></bean>
+	<bean name="welcomeAction" class="spsu.edu.financial.action.WelcomeAction" scope="prototype"  parent="baseAction">
+		<property name="usersDao" ref="usersDao"></property>
+	</bean>	
+	<bean name="logoutAction" class="spsu.edu.financial.action.LogoutAction" scope="prototype"  parent="baseAction"></bean>
+	<bean name="viewUsersAction" class="spsu.edu.financial.action.ViewUsersAction" scope="prototype"  parent="baseAction">
+		<property name="usersDao" ref="usersDao"></property>
+	</bean>	
+	
+	
+	<!-- DAOs -->
+	<bean name="usersDao" class="spsu.edu.financial.dao.UsersDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

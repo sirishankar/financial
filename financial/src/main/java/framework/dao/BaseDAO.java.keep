@@ -1,0 +1,40 @@
+package gov.cdc.framework.dao;
+
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import gov.cdc.framework.model.BaseObject;
+
+import java.util.Calendar;
+
+/**
+ * <p/>
+ * </P>
+ * <p/>
+ * <P>Date: Feb 10, 2005 - 10:34:43 AM</P>
+ *
+ * @author <a href="mailto:mcq1@cdc.gov">Marcelo Caldas</a>
+ */
+public class BaseDAO extends HibernateDaoSupport {
+
+	public BaseObject save(BaseObject object, String user) throws Exception {
+		System.out.println("Save..");
+		setAuditInfo(object, user);
+		this.getHibernateTemplate().save(object);
+		return object;
+	}
+
+	public void saveOrUpdate(BaseObject object, String user) throws Exception {
+		System.out.println("saveOrUpdate..");
+		setAuditInfo(object, user);
+		this.getHibernateTemplate().saveOrUpdate(object);
+	}
+
+	private void setAuditInfo(BaseObject object, String user) {
+		System.out.println("setAuditInfo.."+object.isNew());
+		if (object.isNew()) {
+			object.setAuditCreateDateTime(Calendar.getInstance().getTime());
+			object.setAuditCreateUser(user);
+		}
+		object.setAuditUpdateDateTime(Calendar.getInstance().getTime());
+		object.setAuditUpdateUser(user);
+	}
+}

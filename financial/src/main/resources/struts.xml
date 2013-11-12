@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"       
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="default" extends="struts-default, json-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		<interceptors>
+			<interceptor name="parameterFilter"
+				class="com.opensymphony.xwork2.interceptor.ParameterFilterInterceptor" />
+
+			<interceptor-stack name="appDefaultStack">
+				<interceptor-ref name="exception">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+				</interceptor-ref>
+				<interceptor-ref name="parameterFilter" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+				</interceptor-ref>				
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="appDefaultStack" />
+		
+		<action name="viewLogin" class="loginAction">
+			<result name="input" type="tiles">login</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">welcomeAction</param>
+				<param name="userId">${docId}</param>
+				<param name="password">${docId}</param>				
+				<param name="parse">true</param>
+				<param name="encode">true</param>				
+			</result>						
+		</action>
+		<action name="welcomeAction" class="welcomeAction">
+			<result name="input" type="tiles">welcome</result>			
+			<result name="success" type="tiles">welcome</result>
+			<result name="login" type="redirectAction">
+				<param name="actionName">viewLogin</param>
+				<param name="errorText">${errorText}</param>
+				<param name="parse">true</param>			
+			</result>			
+		</action>		
+		<action name="logout" class="logoutAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">viewLogin</param>
+			</result>
+		</action>
+		<action name="viewUsers" class="viewUsersAction" method="execute">
+			<result name="success" type="tiles">viewUsers</result>
+		</action>
+		<action name="viewUsersJson" class="viewUsersAction" method="getJSON">
+			<result name="success" type="json" >
+				<param name="excludeProperties">JSON, usersDao</param>
+			</result>
+		</action>				
+	</package>
+</struts>
