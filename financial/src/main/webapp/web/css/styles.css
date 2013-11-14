@@ -106,4 +106,27 @@ div #mainContentColumn {
 	width:150px; 
 	display:inline-block;	
 }
+#gridtable tr.ui-state-hover {
+	border: 0px solid #999999;
+	background: #dadada 50% 50% repeat-x;
+	font-weight: bold;
+	color: #212121;
+}
+
+#gridtable tr.ui-state-focus {
+	border: 0px solid #999999;
+	background: #dadada 50% 50% repeat-x;
+	font-weight: bold;
+	color: #212121;
+}
+
+.header{
+    font-size: 14pt;
+    font-weight: bold;
+    padding: 10px 1px 5px 14px;	
+}
+.bodyStyle{
+	padding:10px; 
+	width:400px;	
+}
 }

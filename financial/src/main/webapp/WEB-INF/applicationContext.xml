@@ -42,8 +42,12 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 	<bean name="viewUsersAction" class="spsu.edu.financial.action.ViewUsersAction" scope="prototype"  parent="baseAction">
 		<property name="usersDao" ref="usersDao"></property>
 	</bean>	
-	
-	
+	<bean name="editUserAction" class="spsu.edu.financial.action.EditUserAction" scope="prototype"  parent="baseAction">
+		<property name="usersDao" ref="usersDao"></property>
+	</bean>		
+	<bean name="addUserAction" class="spsu.edu.financial.action.AddUserAction" scope="prototype"  parent="baseAction">
+		<property name="usersDao" ref="usersDao"></property>
+	</bean>		
 	<!-- DAOs -->
 	<bean name="usersDao" class="spsu.edu.financial.dao.UsersDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>

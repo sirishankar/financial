@@ -19,6 +19,7 @@ public class Users extends BaseObject implements User{
 	private String email;
 	private String password;
 	private String role;
+	private boolean allowDelete;
 	private String auditCreateUser;
 	private Date auditCeateDatetime;
 	private String auditUpdateUser;
@@ -113,6 +114,14 @@ public class Users extends BaseObject implements User{
 	protected Long getPk() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public boolean isAllowDelete() {
+		return allowDelete;
+	}
+
+	public void setAllowDelete(boolean allowDelete) {
+		this.allowDelete = allowDelete;
 	}
 
 }

@@ -3,7 +3,7 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <s:form action="welcomeAction" theme="simple">
-	<div style="padding:10px; width:400px;">
+	<div class="bodyStyle">
 		<div style="padding-top:100px;padding-bottom:20px;">
 			<div>
 				<div class="leftColumn">Enter User Id: </div>

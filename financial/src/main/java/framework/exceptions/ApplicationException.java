@@ -2,7 +2,7 @@ package framework.exceptions;
 
 import org.apache.log4j.Priority;
 
-public class ApplicationException extends CDCException {
+public class ApplicationException extends Exception {
 	public ApplicationException() {
 		super();
 	}
@@ -40,7 +40,7 @@ public class ApplicationException extends CDCException {
 		this(msg, cause, arg0, arg1, arg2, arg3, null);
 	}
 	public ApplicationException(String msg, Exception cause, String arg0, String arg1, String arg2, String arg3, String arg4) {
-		super(msg, cause, arg0, arg1, arg2, arg3, arg4);
+		super();
 	}
 
 	public Priority getLogLevel() {

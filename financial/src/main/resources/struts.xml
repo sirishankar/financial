@@ -58,6 +58,22 @@
 			<result name="success" type="json" >
 				<param name="excludeProperties">JSON, usersDao</param>
 			</result>
+		</action>	
+		<action name="addUser_*" class="addUserAction" method="{1}">
+			<result name="input" type="tiles">addUser</result>		
+			<result name="success" type="tiles">addUser</result>
+			<result name="viewUsers" type="redirectAction">
+				<param name="actionName">viewUsers</param>
+				<param name="parse">true</param>			
+			</result>	
+		</action>		
+		<action name="editUser_*" class="editUserAction" method="{1}">
+			<result name="input" type="tiles">editUser</result>		
+			<result name="success" type="tiles">editUser</result>
+			<result name="viewUsers" type="redirectAction">
+				<param name="actionName">viewUsers</param>
+				<param name="parse">true</param>			
+			</result>	
 		</action>				
 	</package>
 </struts>

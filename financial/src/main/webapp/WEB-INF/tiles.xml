@@ -21,6 +21,13 @@
 	<definition name="viewUsers" extends="baseLayout">
 		<put-attribute name="title" value="View Users" />
 		<put-attribute name="body" value="/viewUsers.jsp" />
-	</definition>			
-	
+	</definition>	
+	<definition name="editUser" extends="baseLayout">
+		<put-attribute name="title" value="Edit User" />
+		<put-attribute name="body" value="/editUser.jsp" />
+	</definition>				
+	<definition name="addUser" extends="baseLayout">
+		<put-attribute name="title" value="Add User" />
+		<put-attribute name="body" value="/addUser.jsp" />
+	</definition>		
 </tiles-definitions>

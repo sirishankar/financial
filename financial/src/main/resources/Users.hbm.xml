@@ -23,6 +23,9 @@
         <property name="role" type="string">
             <column name="role" length="128" />
         </property>
+        <property name="allowDelete" type="boolean">
+            <column name="allow_delete" />
+        </property>        
         <property name="auditCreateUser" type="string">
             <column name="audit_create_user" length="128" />
         </property>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import spsu.edu.financial.model.Users;
 import framework.dao.BaseDAO;
+import framework.exceptions.ApplicationException;
 
 public class UsersDaoImpl extends BaseDAO implements UsersDao {
 

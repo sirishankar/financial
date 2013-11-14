@@ -5,12 +5,11 @@ import java.util.Calendar;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import framework.exceptions.ApplicationException;
-import framework.exceptions.CDCException;
 import framework.model.BaseObject;
 
 public class BaseDAO extends HibernateDaoSupport {
 
-	public BaseObject save(BaseObject object, String user) throws CDCException {
+	public BaseObject save(BaseObject object, String user) throws ApplicationException {
 		try {
 			setAuditInfo(object, user);
 			this.getHibernateTemplate().save(object);
@@ -20,7 +19,7 @@ public class BaseDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void saveOrUpdate(BaseObject object, String user) throws CDCException {
+	public void saveOrUpdate(BaseObject object, String user) throws ApplicationException {
 		try {
 			setAuditInfo(object, user);
 			this.getHibernateTemplate().saveOrUpdate(object);
@@ -28,7 +27,14 @@ public class BaseDAO extends HibernateDaoSupport {
 			throw new ApplicationException("Unable to save {0}", e, object.getClass().getName());
 		}
 	}
-
+	
+	public  void delete(BaseObject object)  throws ApplicationException {
+		try{
+		this.getHibernateTemplate().delete(object);
+		}catch (Exception e){
+			throw new ApplicationException("Unable to delete {0}", e, object.getClass().getName()); 
+		}
+	}
 	private void setAuditInfo(BaseObject object, String user) {
 		if (object.isNew()) {
 			object.setAuditCreateDateTime(Calendar.getInstance().getTime());
