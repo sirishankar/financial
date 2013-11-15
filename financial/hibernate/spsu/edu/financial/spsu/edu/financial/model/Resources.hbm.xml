@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 15, 2013 5:46:12 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="spsu.edu.financial.model.Resources" table="Resources" catalog="spspu_financial">
+        <id name="resourceId" type="java.lang.Integer">
+            <column name="resource_id" />
+            <generator class="identity" />
+        </id>
+        <property name="category" type="string">
+            <column name="category" length="128" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="auditCreateUser" type="string">
+            <column name="audit_create_user" length="128" />
+        </property>
+        <property name="auditCreateDatetime" type="timestamp">
+            <column name="audit_create_datetime" length="19" />
+        </property>
+        <property name="auditUpdateUser" type="string">
+            <column name="audit_update_user" length="128" />
+        </property>
+        <property name="auditUpdateDatetime" type="timestamp">
+            <column name="audit_update_datetime" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

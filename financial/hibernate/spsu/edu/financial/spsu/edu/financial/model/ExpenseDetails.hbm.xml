@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 15, 2013 5:46:12 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="spsu.edu.financial.model.ExpenseDetails" table="Expense_Details" catalog="spspu_financial">
+        <id name="expenseId" type="int">
+            <column name="expense_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="projectId" type="java.lang.Integer">
+            <column name="project_id" />
+        </property>
+        <property name="resourceId" type="java.lang.Integer">
+            <column name="resource_id" />
+        </property>
+        <property name="hoursWorked" type="big_decimal">
+            <column name="hours_worked" precision="5" />
+        </property>
+        <property name="expenses" type="big_decimal">
+            <column name="expenses" precision="13" />
+        </property>
+        <property name="referenceDate" type="timestamp">
+            <column name="reference_date" length="19" />
+        </property>
+        <property name="referenceDocumentation" type="string">
+            <column name="reference_documentation" />
+        </property>
+        <property name="weekNumber" type="timestamp">
+            <column name="week_number" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
