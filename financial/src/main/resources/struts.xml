@@ -51,6 +51,7 @@
 				<param name="actionName">viewLogin</param>
 			</result>
 		</action>
+		<!-- start: Users -->
 		<action name="viewUsers" class="viewUsersAction" method="execute">
 			<result name="success" type="tiles">viewUsers</result>
 		</action>
@@ -74,6 +75,59 @@
 				<param name="actionName">viewUsers</param>
 				<param name="parse">true</param>			
 			</result>	
-		</action>				
+		</action>
+		<!-- end -->
+		<!-- start: resources -->
+		<action name="viewResources" class="viewResourceAction" method="execute">
+			<result name="success" type="tiles">viewResources</result>
+		</action>
+		<action name="viewResourceJson" class="viewResourceAction" method="getJSON">
+			<result name="success" type="json" >
+				<param name="excludeProperties">JSON, resourceDao</param>
+			</result>
+		</action>	
+		<action name="addResource_*" class="addResourceAction" method="{1}">
+			<result name="input" type="tiles">addResource</result>		
+			<result name="success" type="tiles">addResource</result>
+			<result name="viewResources" type="redirectAction">
+				<param name="actionName">viewResources</param>
+				<param name="parse">true</param>			
+			</result>	
+		</action>		
+		<action name="editResource_*" class="editResourceAction" method="{1}">
+			<result name="input" type="tiles">editResource</result>		
+			<result name="success" type="tiles">editResource</result>
+			<result name="viewResources" type="redirectAction">
+				<param name="actionName">viewResources</param>
+				<param name="parse">true</param>			
+			</result>	
+		</action>	
+		<!-- end -->
+		<!-- start: projects -->
+		<action name="viewProjects" class="viewProjectAction" method="execute">
+			<result name="success" type="tiles">viewProjects</result>
+		</action>
+		<action name="viewProjectJson" class="viewProjectAction" method="getJSON">
+			<result name="success" type="json" >
+				<param name="excludeProperties">JSON, projectDao</param>
+			</result>
+		</action>	
+		<action name="addProject_*" class="addProjectAction" method="{1}">
+			<result name="input" type="tiles">addProject</result>		
+			<result name="success" type="tiles">addProject</result>
+			<result name="viewProjects" type="redirectAction">
+				<param name="actionName">viewProjects</param>
+				<param name="parse">true</param>			
+			</result>	
+		</action>		
+		<action name="editProject_*" class="editProjectAction" method="{1}">
+			<result name="input" type="tiles">editProject</result>		
+			<result name="success" type="tiles">editProject</result>
+			<result name="viewProjects" type="redirectAction">
+				<param name="actionName">viewProjects</param>
+				<param name="parse">true</param>			
+			</result>	
+		</action>	
+		<!-- end -->							
 	</package>
 </struts>

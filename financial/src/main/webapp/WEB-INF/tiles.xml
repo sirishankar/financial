@@ -18,6 +18,7 @@
 		<put-attribute name="title" value="Welocme" />
 		<put-attribute name="body" value="/welcome.jsp" />
 	</definition>
+	<!-- users -->
 	<definition name="viewUsers" extends="baseLayout">
 		<put-attribute name="title" value="View Users" />
 		<put-attribute name="body" value="/viewUsers.jsp" />
@@ -29,5 +30,31 @@
 	<definition name="addUser" extends="baseLayout">
 		<put-attribute name="title" value="Add User" />
 		<put-attribute name="body" value="/addUser.jsp" />
-	</definition>		
+	</definition>
+	<!-- resources -->
+	<definition name="viewResources" extends="baseLayout">
+		<put-attribute name="title" value="View Resources" />
+		<put-attribute name="body" value="/viewResources.jsp" />
+	</definition>	
+	<definition name="addResource" extends="baseLayout">
+		<put-attribute name="title" value="Add Resource" />
+		<put-attribute name="body" value="/addResource.jsp" />
+	</definition>				
+	<definition name="editResource" extends="baseLayout">
+		<put-attribute name="title" value="Edit Resource" />
+		<put-attribute name="body" value="/editResource.jsp" />
+	</definition>	
+	<!-- projects -->
+	<definition name="viewProjects" extends="baseLayout">
+		<put-attribute name="title" value="View Projects" />
+		<put-attribute name="body" value="/viewProjects.jsp" />
+	</definition>	
+	<definition name="addProject" extends="baseLayout">
+		<put-attribute name="title" value="Add Project" />
+		<put-attribute name="body" value="/addProject.jsp" />
+	</definition>				
+	<definition name="editProject" extends="baseLayout">
+		<put-attribute name="title" value="EditP Project" />
+		<put-attribute name="body" value="/editProject.jsp" />
+	</definition>			
 </tiles-definitions>

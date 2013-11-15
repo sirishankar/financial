@@ -1,7 +1,5 @@
 package spsu.edu.financial.action;
 
-import java.util.logging.Logger;
-
 import org.apache.commons.lang.StringUtils;
 
 import spsu.edu.financial.dao.UsersDao;

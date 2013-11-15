@@ -15,7 +15,7 @@ function actionsFormatter(cellvalue,options,row) {
 	}
 }
 function confirmDialog(){
-	var ret = confirm("Do you wish to delete the user?");
+	var ret = confirm("Do you want to delete the user?");
 	alert(ret);
 	return ret;
 }

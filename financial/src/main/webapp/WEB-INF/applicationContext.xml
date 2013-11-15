@@ -48,8 +48,34 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 	<bean name="addUserAction" class="spsu.edu.financial.action.AddUserAction" scope="prototype"  parent="baseAction">
 		<property name="usersDao" ref="usersDao"></property>
 	</bean>		
+	<!-- Resources -->
+	<bean name="viewResourceAction" class="spsu.edu.financial.action.ViewResourceAction" scope="prototype"  parent="baseAction">
+		<property name="resourceDao" ref="resourceDao"></property>
+	</bean>	
+	<bean name="addResourceAction" class="spsu.edu.financial.action.AddResourceAction" scope="prototype"  parent="baseAction">
+		<property name="resourceDao" ref="resourceDao"></property>
+	</bean>		
+	<bean name="editResourceAction" class="spsu.edu.financial.action.EditResourceAction" scope="prototype"  parent="baseAction">
+		<property name="resourceDao" ref="resourceDao"></property>
+	</bean>	
+	<!-- Projects -->
+	<bean name="viewProjectAction" class="spsu.edu.financial.action.ViewProjectAction" scope="prototype"  parent="baseAction">
+		<property name="projectDao" ref="projectDao"></property>
+	</bean>	
+	<bean name="addProjectAction" class="spsu.edu.financial.action.AddProjectAction" scope="prototype"  parent="baseAction">
+		<property name="projectDao" ref="projectDao"></property>
+	</bean>		
+	<bean name="editProjectAction" class="spsu.edu.financial.action.EditProjectAction" scope="prototype"  parent="baseAction">
+		<property name="projectDao" ref="projectDao"></property>
+	</bean>				
 	<!-- DAOs -->
 	<bean name="usersDao" class="spsu.edu.financial.dao.UsersDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean name="resourceDao" class="spsu.edu.financial.dao.ResourceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>	
+	<bean name="projectDao" class="spsu.edu.financial.dao.ProjectDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>		
 </beans>
