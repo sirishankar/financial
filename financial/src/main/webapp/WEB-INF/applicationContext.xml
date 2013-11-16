@@ -64,9 +64,11 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 	</bean>	
 	<bean name="addProjectAction" class="spsu.edu.financial.action.AddProjectAction" scope="prototype"  parent="baseAction">
 		<property name="projectDao" ref="projectDao"></property>
+		<property name="usersDao" ref="usersDao"></property>		
 	</bean>		
 	<bean name="editProjectAction" class="spsu.edu.financial.action.EditProjectAction" scope="prototype"  parent="baseAction">
 		<property name="projectDao" ref="projectDao"></property>
+		<property name="usersDao" ref="usersDao"></property>			
 	</bean>				
 	<!-- DAOs -->
 	<bean name="usersDao" class="spsu.edu.financial.dao.UsersDaoImpl">

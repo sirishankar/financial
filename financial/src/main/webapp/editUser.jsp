@@ -6,7 +6,7 @@
 		<div class="header"> Edit User </div>
 		<div style="padding: 10px;">
 			<div>
-				<div class="leftColumn">Enter User Id: </div>
+				<div class="leftColumn">User Id: </div>
 				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="finUser.userId"  /></div>
 			</div>
 			<div>
@@ -14,19 +14,19 @@
 				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="finUser.firstName" /></div>
 			</div>
 			<div>
-				<div class="leftColumn">Enter Last Name: </div>
+				<div class="leftColumn">Last Name: </div>
 				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="finUser.lastName"/></div>
 			</div>
 			<div>
-				<div class="leftColumn">Enter Email: </div>
+				<div class="leftColumn">Email: </div>
 				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="finUser.email"/></div>
 			</div>									
 			<div>
-				<div class="leftColumn">Enter Password: </div>
+				<div class="leftColumn">Password: </div>
 				<div style="display:inline-block;"><s:password name ="finUser.password" /></div>
 			</div>	
 			<div>
-				<div class="leftColumn">Enter Role: </div>
+				<div class="leftColumn">Role: </div>
 				<div style="display:inline-block;"><s:select list="#{'Administrator':'Administrator','Project Manager':'Project Manager'}" name="finUser.role"></s:select></div>
 			</div>					
 		</div>

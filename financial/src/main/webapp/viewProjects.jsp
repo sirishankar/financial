@@ -5,8 +5,8 @@
 
 <script type="text/javascript">
 function actionsFormatter(cellvalue,options,row) {
-	var editLink = '<a href="editProject_execute?resourceId='+row.projectId+'">edit</a>';	
-	var deleteLink = '<a href="editProject_delete?resourceId='+row.projectId+'" onclick="return confirmDialog();">delete</a>';
+	var editLink = '<a href="editProject_execute?projectId='+row.projectId+'">edit</a>';	
+	var deleteLink = '<a href="editProject_delete?projectId='+row.projectId+'" onclick="return confirmDialog();">delete</a>';
 	
 	return editLink  + ' | ' + deleteLink;
 }
@@ -28,9 +28,13 @@ function confirmDialog(){
 	        
 	        <sjg:gridColumn name="projectId" index="projectId" title="Id" sortable="false" width="50"/>
 	        <sjg:gridColumn name="projectName" index="projectName" title="Project Name" sortable="false" />   	        
-	        <sjg:gridColumn name="status" index="status" title="status" sortable="false" />	  
-	        <sjg:gridColumn name="startDate" index="startDate" title="Start Date" sortable="false" />
-	        <sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false" />	  
+	        <sjg:gridColumn name="status" index="status" title="status" sortable="false" width="80"/>	  
+	        <sjg:gridColumn name="startDate" index="startDate" title="Start Date" sortable="false" 
+	        	formatter="date" formatoptions="{newformat : 'm/d/y', srcformat : 'Y-m-d H:i:s'}"
+	        	 width="80"/>
+	        <sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false" 
+	        	formatter="date" formatoptions="{newformat : 'm/d/y', srcformat : 'Y-m-d H:i:s'}"
+	        	 width="80"/>	  
 	        <sjg:gridColumn name="user.userName" index="userName" title="Manager" sortable="false" />	        	              	        	              
 			<sjg:gridColumn name="actions" formatter="actionsFormatter"  title="Actions" sortable="false" width="80"/> 	        
 	    </sjg:grid>

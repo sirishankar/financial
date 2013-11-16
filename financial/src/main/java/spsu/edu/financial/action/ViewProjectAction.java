@@ -9,7 +9,7 @@ import framework.action.BaseAction;
 public class ViewProjectAction extends BaseAction {
 	private static final long serialVersionUID = -3713213171180403398L;
 
-	private List<Projects> proecteList;
+	private List<Projects> projectList;
 	
 	private ProjectDao projectDao;
 	public String execute(){
@@ -18,18 +18,11 @@ public class ViewProjectAction extends BaseAction {
 	}
 	
 	public String getJSON(){
-		proecteList = projectDao.getAllProjects();
+		projectList = projectDao.getAllProjects();
 		
 		return SUCCESS;
 	}
 
-	public List<Projects> getProecteList() {
-		return proecteList;
-	}
-
-	public void setProecteList(List<Projects> proecteList) {
-		this.proecteList = proecteList;
-	}
 
 	public ProjectDao getProjectDao() {
 		return projectDao;
@@ -37,6 +30,14 @@ public class ViewProjectAction extends BaseAction {
 
 	public void setProjectDao(ProjectDao projectDao) {
 		this.projectDao = projectDao;
+	}
+
+	public List<Projects> getProjectList() {
+		return projectList;
+	}
+
+	public void setProjectList(List<Projects> projectList) {
+		this.projectList = projectList;
 	}
 
 }

@@ -41,12 +41,12 @@
         <property name="managerId" type="string">
             <column name="manager_id" length="128" />
         </property>
-		<many-to-one name="user" lazy="false"
-			class="spsu.edut.financial.model.Users" cascade="none"
+		<many-to-one name="finUser" lazy="false"
+			class="spsu.edu.financial.model.Users" cascade="none"
 			outer-join="auto" update="false" insert="false" access="property"
-			column="userID"/>        
-    </class>
+			column="manager_id"  />        
+    </class>     
 	<query name="getAllProjects">
 		<![CDATA[from Projects as projects]]>
-	</query>       
+	</query>          
 </hibernate-mapping>
