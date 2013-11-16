@@ -6,11 +6,11 @@
 		<div class="header"> Add a Resource </div>
 		<div style="padding: 10px;">
 			<div>
-				<div class="leftColumn">Enter Category: </div>
+				<div class="leftColumn">Category: </div>
 				<div style="display:inline-block;"><s:select list="#{'Person':'Person','Software':'Software','Hardware':'Hardware','Material':'Material','Cost':'Cost'}" name="resource.category"></s:select></div>
 			</div>		
 			<div>
-				<div class="leftColumn">Enter Description: </div>
+				<div class="leftColumn">Description: </div>
 				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="resource.description"  /></div>
 			</div>						
 		</div>

@@ -1,6 +1,6 @@
 package spsu.edu.financial.model;
 
-// Generated Nov 15, 2013 5:46:12 PM by Hibernate Tools 3.4.0.CR1
+// Generated Nov 16, 2013 10:00:57 PM by Hibernate Tools 3.4.0.CR1
 
 import java.math.BigDecimal;
 import java.util.Date;

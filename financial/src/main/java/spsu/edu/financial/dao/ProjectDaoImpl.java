@@ -18,7 +18,7 @@ public class ProjectDaoImpl extends BaseDAO implements ProjectDao {
 	@Override
 	public List<Projects> getAllProjects() {
 		List<Projects> allProjects = this.getHibernateTemplate().findByNamedQuery("getAllProjects");
-		
+
 		return allProjects;
 	}
 

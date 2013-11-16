@@ -64,10 +64,26 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 	</bean>	
 	<bean name="addProjectAction" class="spsu.edu.financial.action.AddProjectAction" scope="prototype"  parent="baseAction">
 		<property name="projectDao" ref="projectDao"></property>
+		<property name="usersDao" ref="usersDao"></property>		
 	</bean>		
 	<bean name="editProjectAction" class="spsu.edu.financial.action.EditProjectAction" scope="prototype"  parent="baseAction">
 		<property name="projectDao" ref="projectDao"></property>
-	</bean>				
+		<property name="usersDao" ref="usersDao"></property>			
+	</bean>	
+	<!-- Expenses -->
+	<bean name="viewExpensesAction" class="spsu.edu.financial.action.ViewExpensesAction" scope="prototype"  parent="baseAction">
+		<property name="expenseDao" ref="expenseDao"></property>
+	</bean>	
+	<bean name="addExpenseAction" class="spsu.edu.financial.action.AddExpenseAction" scope="prototype"  parent="baseAction">
+		<property name="expenseDao" ref="expenseDao"></property>
+		<property name="projectDao" ref="projectDao"></property>
+		<property name="resourceDao" ref="resourceDao"></property>			
+	</bean>		
+	<bean name="editExpenseAction" class="spsu.edu.financial.action.EditExpenseAction" scope="prototype"  parent="baseAction">
+		<property name="expenseDao" ref="expenseDao"></property>
+		<property name="projectDao" ref="projectDao"></property>
+		<property name="resourceDao" ref="resourceDao"></property>			
+	</bean>						
 	<!-- DAOs -->
 	<bean name="usersDao" class="spsu.edu.financial.dao.UsersDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
@@ -77,5 +93,8 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 	</bean>	
 	<bean name="projectDao" class="spsu.edu.financial.dao.ProjectDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>		
+	</bean>	
+	<bean name="expenseDao" class="spsu.edu.financial.dao.ExpenseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>				
 </beans>

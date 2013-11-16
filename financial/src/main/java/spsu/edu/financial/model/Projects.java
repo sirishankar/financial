@@ -13,7 +13,7 @@ import framework.model.BaseObject;
 public class Projects extends BaseObject {
 	private static final long serialVersionUID = 6032056250764705705L;
 	
-	private String projectId;
+	private Integer projectId;
 	private String projectName;
 	private String description;
 	private String status;
@@ -25,39 +25,14 @@ public class Projects extends BaseObject {
 	private String clientName;
 	private String clientEmail;
 	private String managerId;
-	private Users user;
+	private Users finUser;
 
-	public Projects() {
+
+	public Integer getProjectId() {
+		return projectId;
 	}
 
-	public Projects(String projectId, String status) {
-		this.projectId = projectId;
-		this.status = status;
-	}
-
-	public Projects(String projectId, String projectName, String description,
-			String status, Date startDate, Date endDate,
-			BigDecimal projectedCost, BigDecimal actualCost, String comments,
-			String clientName, String clientEmail, String managerId) {
-		this.projectId = projectId;
-		this.projectName = projectName;
-		this.description = description;
-		this.status = status;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.projectedCost = projectedCost;
-		this.actualCost = actualCost;
-		this.comments = comments;
-		this.clientName = clientName;
-		this.clientEmail = clientEmail;
-		this.managerId = managerId;
-	}
-
-	public String getProjectId() {
-		return this.projectId;
-	}
-
-	public void setProjectId(String projectId) {
+	public void setProjectId(Integer projectId) {
 		this.projectId = projectId;
 	}
 
@@ -155,12 +130,15 @@ public class Projects extends BaseObject {
 		return null;
 	}
 
-	public Users getUser() {
-		return user;
+	public Users getFinUser() {
+		return finUser;
 	}
 
-	public void setUser(Users user) {
-		this.user = user;
+	public void setFinUser(Users finUser) {
+		this.finUser = finUser;
 	}
 
+	public String getIdString(){
+		return String.valueOf(projectId);
+	}
 }

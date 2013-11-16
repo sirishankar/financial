@@ -128,6 +128,32 @@
 				<param name="parse">true</param>			
 			</result>	
 		</action>	
-		<!-- end -->							
+		<!-- end -->
+		<!-- start: Expense Details -->
+		<action name="viewExpenses" class="viewExpensesAction" method="execute">
+			<result name="success" type="tiles">viewExpenses</result>
+		</action>
+		<action name="viewExpensesJson" class="viewExpensesAction" method="getJSON">
+			<result name="success" type="json" >
+				<param name="excludeProperties">JSON, expenseDao</param>
+			</result>
+		</action>	
+		<action name="addExpense_*" class="addExpenseAction" method="{1}">
+			<result name="input" type="tiles">addExpense</result>		
+			<result name="success" type="tiles">addExpense</result>
+			<result name="viewExpenses" type="redirectAction">
+				<param name="actionName">viewExpenses</param>
+				<param name="parse">true</param>			
+			</result>	
+		</action>		
+		<action name="editExpense_*" class="editExpenseAction" method="{1}">
+			<result name="input" type="tiles">editExpense</result>		
+			<result name="success" type="tiles">editExpense</result>
+			<result name="viewExpenses" type="redirectAction">
+				<param name="actionName">viewExpenses</param>
+				<param name="parse">true</param>			
+			</result>	
+		</action>	
+		<!-- end -->													
 	</package>
 </struts>

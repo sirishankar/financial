@@ -54,7 +54,20 @@
 		<put-attribute name="body" value="/addProject.jsp" />
 	</definition>				
 	<definition name="editProject" extends="baseLayout">
-		<put-attribute name="title" value="EditP Project" />
+		<put-attribute name="title" value="Edit Project" />
 		<put-attribute name="body" value="/editProject.jsp" />
-	</definition>			
+	</definition>
+	<!-- expenses -->
+	<definition name="viewExpenses" extends="baseLayout">
+		<put-attribute name="title" value="View Expenses" />
+		<put-attribute name="body" value="/viewExpenses.jsp" />
+	</definition>	
+	<definition name="addExpense" extends="baseLayout">
+		<put-attribute name="title" value="Add Expense" />
+		<put-attribute name="body" value="/addExpense.jsp" />
+	</definition>				
+	<definition name="editExpense" extends="baseLayout">
+		<put-attribute name="title" value="Edit Expense" />
+		<put-attribute name="body" value="/editExpense.jsp" />
+	</definition>				
 </tiles-definitions>

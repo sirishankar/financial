@@ -1,6 +1,9 @@
 package spsu.edu.financial.action;
 
+import java.util.List;
+
 import spsu.edu.financial.dao.ProjectDao;
+import spsu.edu.financial.dao.UsersDao;
 import spsu.edu.financial.model.Projects;
 import spsu.edu.financial.model.Users;
 import framework.action.BaseAction;
@@ -9,11 +12,14 @@ import framework.exceptions.ApplicationException;
 public class EditProjectAction extends BaseAction {
 	private static final long serialVersionUID = -8454776749457454213L;
 	private ProjectDao projectDao;
+	private UsersDao usersDao;	
 	private Projects project;
 	private Integer projectId;
+	private List<Users> userList;
 	
 	public String execute(){
 		if(projectId!=null){
+			userList = usersDao.getAllUsers();
 			project = projectDao.getProject(projectId);
 		}else{
 			this.addActionError("Invalud Resource.");
@@ -32,7 +38,7 @@ public class EditProjectAction extends BaseAction {
 			project = projectDao.getProject(projectId);
 			projectDao.delete(project);
 		}else{
-			this.addActionError("Invalud User. ");
+			this.addActionError("Invalud Project. ");
 		}
 		
 		return "viewProjects";
@@ -60,6 +66,22 @@ public class EditProjectAction extends BaseAction {
 
 	public void setProjectId(Integer projectId) {
 		this.projectId = projectId;
+	}
+
+	public UsersDao getUsersDao() {
+		return usersDao;
+	}
+
+	public void setUsersDao(UsersDao usersDao) {
+		this.usersDao = usersDao;
+	}
+
+	public List<Users> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<Users> userList) {
+		this.userList = userList;
 	}
 
 
