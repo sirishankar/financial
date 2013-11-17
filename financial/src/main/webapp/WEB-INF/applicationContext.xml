@@ -69,7 +69,6 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 	<bean name="editProjectAction" class="spsu.edu.financial.action.EditProjectAction" scope="prototype"  parent="baseAction">
 		<property name="projectDao" ref="projectDao"></property>
 		<property name="usersDao" ref="usersDao"></property>			
-<<<<<<< HEAD
 	</bean>	
 	<!-- Expenses -->
 	<bean name="viewExpensesAction" class="spsu.edu.financial.action.ViewExpensesAction" scope="prototype"  parent="baseAction">
@@ -85,9 +84,6 @@ http://www.springframework.org/schema/util http://www.springframework.org/schema
 		<property name="projectDao" ref="projectDao"></property>
 		<property name="resourceDao" ref="resourceDao"></property>			
 	</bean>						
-=======
-	</bean>				
->>>>>>> b1846805fbdb1c2f643e11d5ae1ac78d0cd80b75
 	<!-- DAOs -->
 	<bean name="usersDao" class="spsu.edu.financial.dao.UsersDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
