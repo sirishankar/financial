@@ -19,8 +19,10 @@ function confirmDialog(){
 	<div class="header"> View Resources </div>
 	
 	<div style="padding: 10px;">
-		<div style="font-size:10pt; padding-left:400px;"> 
-			<a href="addResource_execute.action">Add a New Resource</a>
+		
+		<div style="font-size:10pt; padding-left:395px; margin:5px;"> 
+   			
+			<a href="addResource_execute.action"><img alt="Add New Resource" class="iconImage" src="<s:url value="/web/images/add.png"/>" /> Add a New Resource</a>
 		</div>		
 	    <s:url var="remoteurl" action="viewResourceJson"/>
 		<sjg:grid id="gridtable" dataType="json" href="%{remoteurl}" gridModel="resourceList"

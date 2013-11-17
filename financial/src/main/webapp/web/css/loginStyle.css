@@ -1,0 +1,32 @@
+
+body{
+	 background-color: hsl(0,0%,95%);
+}
+#loginDiv
+{
+	background-color:white;
+	padding: 10px; 
+	border: thin solid #C0C0C0; 
+	width: 300px; 
+	margin: 10px;
+	position: absolute; 
+	left: 50%; 
+	top: 50%; 
+	margin-left: -150px; 
+	margin-top: -150px;
+}
+.label{
+	font-family:Arial, Helvetica, sans-serif;
+	color:gray;
+}
+#nav, .header, #pageFooter, #footerDivider, #pageHeader, #headerContent, #headerDivider, #errorMessage, .errorMessage {
+display:none !important;
+}
+
+
+.loginErrorMessage{
+	list-style: none outside none;	
+	color: red;
+	font-weight: bold;
+}
+

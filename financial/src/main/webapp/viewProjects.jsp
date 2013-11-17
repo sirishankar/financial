@@ -19,8 +19,9 @@ function confirmDialog(){
 	<div class="header"> View Projects </div>
 	
 	<div style="padding: 10px;">
-		<div style="font-size:10pt; padding-left:400px;"> 
-			<a href="addProject_execute.action">Add a New Project</a>
+		
+		<div style="font-size:10pt; padding-left:545px; margin:5px;"> 
+			<a href="addProject_execute.action"><img alt="Add New Project" class="iconImage" src="<s:url value="/web/images/add.png"/>" /> Add a New Project</a>
 		</div>		
 	    <s:url var="remoteurl" action="viewProjectJson"/>
 		<sjg:grid id="gridtable" dataType="json" href="%{remoteurl}" gridModel="projectList"
@@ -35,7 +36,7 @@ function confirmDialog(){
 	        <sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false" 
 	        	formatter="date" formatoptions="{newformat : 'm/d/y', srcformat : 'Y-m-d H:i:s'}"
 	        	 width="80"/>	  
-	        <sjg:gridColumn name="finUser.userName" index="userName" title="Manager" sortable="false" />	        	              	        	                      	              	        	              
+	        <sjg:gridColumn name="user.userName" index="userName" title="Manager" sortable="false" />	        	              	        	              
 			<sjg:gridColumn name="actions" formatter="actionsFormatter"  title="Actions" sortable="false" width="80"/> 	        
 	    </sjg:grid>
     </div>

@@ -18,9 +18,9 @@ function confirmDialog(){
 <div>
 	<div class="header"> View Expenses </div>
 	
-	<div style="padding: 10px;">
-		<div style="font-size:10pt; padding-left:400px;"> 
-			<a href="addExpense_execute.action">Add a New Expense</a>
+	<div style="padding: 10px;">	
+		<div style="font-size:10pt; padding-left:545px; margin:5px;"> 
+			<a href="addExpense_execute.action"><img alt="Add New Expense" class="iconImage" src="<s:url value="/web/images/add.png"/>" /> Add New Expense</a>
 		</div>		
 	    <s:url var="remoteurl" action="viewExpensesJson"/>
 		<sjg:grid id="gridtable" dataType="json" href="%{remoteurl}" gridModel="expenseList"

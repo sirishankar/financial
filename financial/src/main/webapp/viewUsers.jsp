@@ -22,11 +22,12 @@ function confirmDialog(){
 </script>
 <div>
 	<div class="header"> View Users </div>
-	
+
 	<div style="padding: 10px;">
-		<div style="font-size:10pt; padding-left:600px;"> 
-			<a href="addUser_execute.action">Add a New User</a>
-		</div>		
+		<div style="font-size:10pt; padding-left:570px; margin:5px;"> 
+   			
+			<a href="addUser_execute.action"><img alt="Add New User" class="iconImage" src="<s:url value="/web/images/add.png"/>" /> Add a New User</a>
+		</div>			
 	    <s:url var="remoteurl" action="viewUsersJson"/>
 		<sjg:grid id="gridtable" dataType="json" href="%{remoteurl}" gridModel="usersList"
 			pager="false" rownumbers="false" rowNum= "-1" viewrecords="true" resizable="false" resizableHandles="false" >
