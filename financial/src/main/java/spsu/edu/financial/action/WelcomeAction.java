@@ -20,17 +20,22 @@ public class WelcomeAction extends BaseAction {
 		setErrorText("");
 		if(StringUtils.isBlank(userId) && getUser()!=null){
 			userId = getUser().getUserId();
+			password = getUser().getPassword();
 		}
 
 		if(StringUtils.isNotBlank(userId)){
 			finUser = usersDao.getUser(userId);
-			if(finUser!=null && StringUtils.isNotBlank(finUser.getUserId())){
+			if(finUser!=null && 
+					StringUtils.equals(userId, finUser.getUserId()) && 
+					StringUtils.equals(password, finUser.getPassword())){
 				super.setUser(finUser);
 				
 				ret = SUCCESS;
+			}else{
+				finUser = new Users();
 			}
 		}
-		if(finUser == null || finUser.getUserId() == null){
+		if(finUser == null || finUser.getUserId() == null || finUser.getPassword() == null){
 			setErrorText("Invalid User or Password");
 			ret = "login";			
 		}
