@@ -138,7 +138,11 @@ public class Projects extends BaseObject {
 		this.finUser = finUser;
 	}
 
+<<<<<<< HEAD
 	public String getIdString(){
 		return String.valueOf(projectId);
 	}
+=======
+
+>>>>>>> b1846805fbdb1c2f643e11d5ae1ac78d0cd80b75
 }

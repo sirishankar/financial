@@ -12,7 +12,11 @@
             
         <mapping resource="Users.hbm.xml" />
         <mapping resource="Resources.hbm.xml" />
+<<<<<<< HEAD
         <mapping resource="Projects.hbm.xml" /> 
         <mapping resource="ExpenseDetails.hbm.xml" />               
+=======
+        <mapping resource="Projects.hbm.xml" />        
+>>>>>>> b1846805fbdb1c2f643e11d5ae1ac78d0cd80b75
     </session-factory>
 </hibernate-configuration>
