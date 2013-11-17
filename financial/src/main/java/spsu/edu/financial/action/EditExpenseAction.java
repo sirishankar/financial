@@ -1,11 +1,11 @@
 package spsu.edu.financial.action;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import spsu.edu.financial.dao.ExpenseDao;
 import spsu.edu.financial.dao.ProjectDao;
 import spsu.edu.financial.dao.ResourceDao;
-import spsu.edu.financial.dao.UsersDao;
 import spsu.edu.financial.model.ExpenseDetails;
 import spsu.edu.financial.model.Projects;
 import spsu.edu.financial.model.Resources;
@@ -36,9 +36,33 @@ public class EditExpenseAction extends BaseAction {
 	}
 
 	public String save() throws ApplicationException{
-		Users finUser = (Users) getUser();
-		expenseDao.saveOrUpdate(expense, finUser.getUserId());
-
+		try{
+			Users finUser = (Users) getUser();
+			ExpenseDetails originalExpense = expenseDao.getExpense(expense.getExpenseId());		
+			Projects project = projectDao.getProject(expense.getProjectId());
+			
+			BigDecimal actualCost = BigDecimal.ZERO;
+			BigDecimal actualHours = BigDecimal.ZERO;
+			if(project.getActualCost()==null){
+				actualCost = expense.getExpenses();		
+			}else{
+				actualCost = project.getActualCost().subtract(originalExpense.getExpenses()).add(expense.getExpenses());
+			}
+			if(project.getActualHours()==null){
+				actualHours = expense.getHoursWorked();
+			}else{
+				actualHours = project.getActualHours().subtract(originalExpense.getHoursWorked()).add(expense.getHoursWorked());		
+			}			
+						
+			project.setActualCost(actualCost);
+			project.setActualHours(actualHours);
+			projectDao.saveOrUpdate(project, finUser.getUserId());
+			
+			expenseDao.saveOrUpdate(expense, finUser.getUserId());
+		}catch(Exception e){
+			addActionError("Error: "+e.getMessage());
+			return INPUT;
+		}
 		return "viewExpenses";
 	}
 	public String delete() throws ApplicationException {

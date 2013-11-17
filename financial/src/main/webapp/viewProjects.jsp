@@ -35,11 +35,7 @@ function confirmDialog(){
 	        <sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false" 
 	        	formatter="date" formatoptions="{newformat : 'm/d/y', srcformat : 'Y-m-d H:i:s'}"
 	        	 width="80"/>	  
-<<<<<<< HEAD
-	        <sjg:gridColumn name="finUser.userName" index="userName" title="Manager" sortable="false" />	        	              	        	              
-=======
-	        <sjg:gridColumn name="user.userName" index="userName" title="Manager" sortable="false" />	        	              	        	              
->>>>>>> b1846805fbdb1c2f643e11d5ae1ac78d0cd80b75
+	        <sjg:gridColumn name="finUser.userName" index="userName" title="Manager" sortable="false" />	        	              	        	                      	              	        	              
 			<sjg:gridColumn name="actions" formatter="actionsFormatter"  title="Actions" sortable="false" width="80"/> 	        
 	    </sjg:grid>
     </div>

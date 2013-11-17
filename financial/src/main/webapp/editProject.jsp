@@ -50,7 +50,15 @@
 				<div style="display:inline-block;padding-bottom: 5px;">
 					<s:select list="userList" name="project.managerId" listKey="userId" listValue="userName" ></s:select>
 				</div>
-			</div>																															
+			</div>
+			<div>
+				<div class="leftColumn">Actual Cost: </div>
+				<div style="display:inline-block;padding-bottom: 5px;"><s:property value="project.actualCost"/></div>
+			</div>	
+			<div>
+				<div class="leftColumn">Actual Hours: </div>
+				<div style="display:inline-block;padding-bottom: 5px;"><s:property value="project.actualHours"  /></div>
+			</div>																																				
 		</div>
 		<div align="center" style="padding:20px;">
 			<s:hidden name="project.projectId" />

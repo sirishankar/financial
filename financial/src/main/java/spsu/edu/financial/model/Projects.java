@@ -21,6 +21,7 @@ public class Projects extends BaseObject {
 	private Date endDate;
 	private BigDecimal projectedCost;
 	private BigDecimal actualCost;
+	private BigDecimal actualHours;
 	private String comments;
 	private String clientName;
 	private String clientEmail;
@@ -140,5 +141,13 @@ public class Projects extends BaseObject {
 
 	public String getIdString(){
 		return String.valueOf(projectId);
+	}
+
+	public BigDecimal getActualHours() {
+		return actualHours;
+	}
+
+	public void setActualHours(BigDecimal actualHours) {
+		this.actualHours = actualHours;
 	}
 }

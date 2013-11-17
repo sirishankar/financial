@@ -29,6 +29,9 @@
         <property name="actualCost" type="big_decimal">
             <column name="actual_cost" precision="13" />
         </property>
+        <property name="actualHours" type="big_decimal">
+            <column name="actual_hours" precision="13" />
+        </property>        
         <property name="comments" type="string">
             <column name="comments" />
         </property>

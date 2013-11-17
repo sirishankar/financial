@@ -1,5 +1,6 @@
 package spsu.edu.financial.action;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import spsu.edu.financial.dao.ExpenseDao;
@@ -26,15 +27,37 @@ public class AddExpenseAction extends BaseAction {
 	public String execute(){
 		expense = new ExpenseDetails();
 		resourceList = resourceDao.getAllResources();
-		projectList = projectDao.getAllProjects();
+		setProjectList(projectDao.getAllProjects());
 		
 		return SUCCESS;
 	}
 	
 	public String save() throws ApplicationException{
+		try{
 		finUser = (Users) getUser();
 		if(expense!=null){
+			BigDecimal actualCost = BigDecimal.ZERO;
+			BigDecimal actualHours = BigDecimal.ZERO;
+			Projects project = projectDao.getProject(expense.getProjectId());
+			if(project.getActualCost()==null){
+				actualCost = expense.getExpenses();		
+			}else{
+				actualCost = project.getActualCost().add(expense.getExpenses());
+			}
+			if(project.getActualHours()==null){
+				actualHours = expense.getHoursWorked();
+			}else{
+				actualHours = project.getActualHours().add(expense.getHoursWorked());
+			}
+			
+			project.setActualCost(actualCost);
+			project.setActualHours(actualHours);
+			projectDao.saveOrUpdate(project, finUser.getUserId());
 			expenseDao.save(expense, finUser.getUserId());
+		}
+		}catch(Exception ex){
+			addActionError("Error: "+ex.getMessage());
+			return INPUT;
 		}
 		return "viewExpenses";
 	}
@@ -63,13 +86,6 @@ public class AddExpenseAction extends BaseAction {
 		this.resourceList = resourceList;
 	}
 
-	public List<Projects> getProjectList() {
-		return projectList;
-	}
-
-	public void setProjectList(List<Projects> projectList) {
-		this.projectList = projectList;
-	}
 
 	public ExpenseDao getExpenseDao() {
 		return expenseDao;
@@ -93,6 +109,14 @@ public class AddExpenseAction extends BaseAction {
 
 	public void setProjectDao(ProjectDao projectDao) {
 		this.projectDao = projectDao;
+	}
+
+	public List<Projects> getProjectList() {
+		return projectList;
+	}
+
+	public void setProjectList(List<Projects> projectList) {
+		this.projectList = projectList;
 	}
 
 }

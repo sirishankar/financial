@@ -36,6 +36,7 @@
 				<div class="leftColumn">Projected Cost: </div>
 				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="project.projectedCost"  /></div>
 			</div>	
+					
 			<div>
 				<div class="leftColumn">Client Name: </div>
 				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="project.clientName"  /></div>
