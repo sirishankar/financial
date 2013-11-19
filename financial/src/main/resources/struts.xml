@@ -154,6 +154,9 @@
 				<param name="parse">true</param>			
 			</result>	
 		</action>	
-		<!-- end -->													
+		<!-- end -->	
+		<action name="viewReports" class="viewReportsAction" method="execute">
+			<result name="success" type="tiles">viewReports</result>
+		</action>												
 	</package>
 </struts>

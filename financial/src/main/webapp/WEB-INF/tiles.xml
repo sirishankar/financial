@@ -69,5 +69,10 @@
 	<definition name="editExpense" extends="baseLayout">
 		<put-attribute name="title" value="Edit Expense" />
 		<put-attribute name="body" value="/editExpense.jsp" />
+	</definition>	
+	<!-- Reports -->
+	<definition name="viewReports" extends="baseLayout">
+		<put-attribute name="title" value="View Reports" />
+		<put-attribute name="body" value="/viewReports.jsp" />
 	</definition>				
 </tiles-definitions>
