@@ -29,14 +29,11 @@ function confirmDialog(){
 	        
 	        <sjg:gridColumn name="projectId" index="projectId" title="Id" sortable="false" width="50"/>
 	        <sjg:gridColumn name="projectName" index="projectName" title="Project Name" sortable="false" />   	        
-	        <sjg:gridColumn name="status" index="status" title="status" sortable="false" width="80"/>	  
-	        <sjg:gridColumn name="startDate" index="startDate" title="Start Date" sortable="false" 
-	        	formatter="date" formatoptions="{newformat : 'm/d/y', srcformat : 'Y-m-d H:i:s'}"
-	        	 width="80"/>
-	        <sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false" 
-	        	formatter="date" formatoptions="{newformat : 'm/d/y', srcformat : 'Y-m-d H:i:s'}"
-	        	 width="80"/>	  
-	        <sjg:gridColumn name="user.userName" index="userName" title="Manager" sortable="false" />	        	              	        	              
+	        <sjg:gridColumn name="status" index="status" title="status" sortable="false" width="80"/>	
+	        <sjg:gridColumn name="actualHours" index="actualHours" title="Actual Hours" formatter="currency" width="80" />	
+	        <sjg:gridColumn name="actualCost" index="actualCost" title="Actual Cost" 
+	        	formatter="currency" formatoptions="{prefix: '$', thousandsSeparator:','}" width="80" />  
+	        <sjg:gridColumn name="finUser.userName" index="userName" title="Manager" sortable="false" />	        	              	        	              
 			<sjg:gridColumn name="actions" formatter="actionsFormatter"  title="Actions" sortable="false" width="80"/> 	        
 	    </sjg:grid>
     </div>

@@ -89,7 +89,6 @@ public class ExpenseDetails  extends BaseObject {
 	public void setWeekNumber(Integer weekNumber) {
 		this.weekNumber = weekNumber;
 	}
-
 	@Override
 	protected Long getPk() {
 		// TODO Auto-generated method stub

@@ -3,6 +3,10 @@ package spsu.edu.financial.action;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
+import com.opensymphony.xwork2.Preparable;
+
 import spsu.edu.financial.dao.ExpenseDao;
 import spsu.edu.financial.dao.ProjectDao;
 import spsu.edu.financial.dao.ResourceDao;
@@ -13,7 +17,7 @@ import spsu.edu.financial.model.Users;
 import framework.action.BaseAction;
 import framework.exceptions.ApplicationException;
 
-public class AddExpenseAction extends BaseAction {
+public class AddExpenseAction extends BaseAction implements Preparable {
 	private static final long serialVersionUID = -7493786595379199502L;
 
 	private ExpenseDetails expense;
@@ -23,11 +27,18 @@ public class AddExpenseAction extends BaseAction {
 	private ExpenseDao expenseDao;
 	private ResourceDao resourceDao;
 	private ProjectDao projectDao;
+	
+	private String weekNumber;
+	private String hoursWorked;
+	private String expenses;
 		
+	public void prepare(){
+		resourceList = resourceDao.getAllResources();
+		setProjectList(projectDao.getAllProjects());		
+	}
 	public String execute(){
 		expense = new ExpenseDetails();
-		resourceList = resourceDao.getAllResources();
-		setProjectList(projectDao.getAllProjects());
+
 		
 		return SUCCESS;
 	}
@@ -35,7 +46,10 @@ public class AddExpenseAction extends BaseAction {
 	public String save() throws ApplicationException{
 		try{
 		finUser = (Users) getUser();
-		if(expense!=null){
+		if(expense!=null){			
+			expense.setWeekNumber(Integer.parseInt(weekNumber));
+			expense.setHoursWorked(new BigDecimal(hoursWorked));
+			expense.setExpenses(new BigDecimal(expenses));
 			BigDecimal actualCost = BigDecimal.ZERO;
 			BigDecimal actualHours = BigDecimal.ZERO;
 			Projects project = projectDao.getProject(expense.getProjectId());
@@ -60,6 +74,42 @@ public class AddExpenseAction extends BaseAction {
 			return INPUT;
 		}
 		return "viewExpenses";
+	}
+	public void validate(){
+		if(expense!=null){
+			if(StringUtils.isNotBlank(getWeekNumber())){
+				try{
+				Integer num = Integer.parseInt(getWeekNumber());
+				if(num <=0 || num > 52){
+					this.addActionError("Week Number: invalid Week Number.");
+				}
+				}catch(Exception e){
+					this.addActionError("Week Number: please enter value between 1 and 52.");
+				}
+			}else{
+				this.addActionError("Week Number: invalid Week Number.");
+			}
+			if(StringUtils.isNotBlank(getHoursWorked())){
+				try{
+				BigDecimal hours = new BigDecimal(getHoursWorked());
+	
+				}catch(Exception e){
+					this.addActionError("Hours Worked: please enter valid decimal number.");
+				}
+			}else{
+				this.addActionError("Hours Worked: invalid hours worked.");
+			}
+			if(StringUtils.isNotBlank(getExpenses())){
+				try{
+				BigDecimal exp = new BigDecimal(getExpenses());
+	
+				}catch(Exception e){
+					this.addActionError("Expenses: please enter valid decimal number.");
+				}
+			}else{
+				this.addActionError("Expenses: invalid expenses.");
+			}
+		}
 	}
 
 	public ExpenseDetails getExpense() {
@@ -117,6 +167,24 @@ public class AddExpenseAction extends BaseAction {
 
 	public void setProjectList(List<Projects> projectList) {
 		this.projectList = projectList;
+	}
+	public String getWeekNumber() {
+		return weekNumber;
+	}
+	public void setWeekNumber(String weekNumber) {
+		this.weekNumber = weekNumber;
+	}
+	public String getHoursWorked() {
+		return hoursWorked;
+	}
+	public void setHoursWorked(String hoursWorked) {
+		this.hoursWorked = hoursWorked;
+	}
+	public String getExpenses() {
+		return expenses;
+	}
+	public void setExpenses(String expenses) {
+		this.expenses = expenses;
 	}
 
 }

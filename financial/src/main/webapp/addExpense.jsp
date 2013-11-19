@@ -20,15 +20,15 @@
 			</div>										
 			<div>
 				<div class="leftColumn">Week Number: </div>
-				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="expense.weekNumber"  /></div>
+				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="weekNumber"  /></div>
 			</div>	
 			<div>
 				<div class="leftColumn">Hours Worked: </div>
-				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="expense.hoursWorked"  /></div>
+				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="hoursWorked"  /></div>
 			</div>	
 			<div>
 				<div class="leftColumn">Expenses: </div>
-				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="expense.expenses"  /></div>
+				<div style="display:inline-block;padding-bottom: 5px;"><s:textfield name="expenses"  /></div>
 			</div>	
 			<div>
 				<div class="leftColumn">Reference Date:</div>

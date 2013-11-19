@@ -39,5 +39,14 @@ public class ViewProjectAction extends BaseAction {
 	public void setProjectList(List<Projects> projectList) {
 		this.projectList = projectList;
 	}
+    
+/*  
+<sjg:gridColumn name="startDate" index="startDate" title="Start Date" sortable="false" 
+formatter="date" formatoptions="{newformat : 'm/d/y', srcformat : 'Y-m-d H:i:s'}"
+ width="80"/>
+<sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false" 
+formatter="date" formatoptions="{newformat : 'm/d/y', srcformat : 'Y-m-d H:i:s'}"
+ width="80"/> 
+ */	
 
 }
